@@ -17,7 +17,7 @@ button.onclick = function () {
             if (request.status == 200) {
                 var counter = request.responseText;
                 var span = document.getElementById('count');
-                span.InnerHTML = counter.toString();
+                span.InnerHTML = counter();
             }
         }
         //not done yet
@@ -25,7 +25,6 @@ button.onclick = function () {
     //make the req
     request.open('GET', 'http://anutony.imad.hasura-app.io/counter', true);
     request.send(null);
-
 };
 
 
