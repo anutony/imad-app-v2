@@ -3,15 +3,29 @@ var button = document.getElementById('counter');
 var counter = 0;
 
 button.onclick = function () {
-    counter = counter + 1;
-    //make a request to counter endpoint 
+  
+    
+    
+    //create a request object 
+    var request = new XMLhttprequest();
+    
     
     //capture the response and store it in a variable 
-    
-    //render the variable in the correct span
-    
-var span = document.getElementById('count');  
-span.innerHTML = counter;
+    request.onreadystatechange = function() {
+        if (request.readystate == XMLhttprequest.DONE){
+            //Take some action
+            if (request.status == 200) {
+                var counter = request.responseText;
+                var span = document.getElementById('count');
+                span.InnerHTML = counter.toString();
+            }
+        }
+        //not done yet
+    };
+    //make the req
+    request.open('GET', 'http://anutony.imad.hasura-app.io/counter', true);
+    request.send(null);
+
 };
 
 
