@@ -30,6 +30,8 @@ button.onclick = function () {
 
 var submit = document.getElementById('submit_btn');
 submit.onclick = function () {
+    
+     var request = new XMLHttpRequest();
     //make a request to server and send the nemes
     
     request.onreadystatechange = function() {
